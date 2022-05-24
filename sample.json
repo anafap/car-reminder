@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Polo GT",
+        "mileage": 65000
+    },
+    {
+        "id": 2,
+        "name": "Skoda Yeti",
+        "mileage": 50000
+    }
+]
