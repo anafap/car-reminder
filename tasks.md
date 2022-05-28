@@ -25,6 +25,7 @@ GET /cars/:id
             "message": "No such car"
         },
         HTTP status code 404.
+        
 5. Create a new api endpoint that creates a new car
 
 POST /cars
@@ -32,6 +33,11 @@ Post data (json):
 {
     "name": "Maruti Ritz",
     "mileage": 100032
+}
+
+Response should be:
+{
+    "result": "success"
 }
 
 To test this, use Postman to create POST requests.

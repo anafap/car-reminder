@@ -1,7 +1,10 @@
 const express = require("express");
-const { arrayBuffer } = require("stream/consumers");
+var bodyParser = require("body-parser");
+
 const app = express();
 const port = 3000;
+
+app.use(bodyParser.json());
 
 const cars = [
     {
@@ -15,14 +18,6 @@ const cars = [
         mileage: 50000,
     },
 ];
-
-function search(carid, cars) {
-    for (var i = 0; i < cars.length; i++) {
-        if (cars[i].id === carid) {
-            return cars[i];
-        }
-    }
-}
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
@@ -46,8 +41,20 @@ app.get("/cars/:id", function (req, res) {
         res.json({ result: "fail" });
     }
 });
-app.get("*", function (req, res) {
-    res.send("Sorry, this is an invalid URL.");
+
+app.post("/cars", function (req, res) {
+    const maxId = Math.max(
+        ...cars.map(function (element) {
+            return element.id;
+        })
+    );
+
+    cars.push({
+        id: maxId + 1,
+        name: req.body.name,
+        mileage: req.body.mileage,
+    });
+    res.json({ result: "success" });
 });
 
 app.listen(port, () => {
