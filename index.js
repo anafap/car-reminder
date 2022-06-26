@@ -105,15 +105,7 @@ app.post("/cars", function (req, res) {
             });
         });
 
-    /*
-    console.log("carId", carsId);
-    var nextId = carsId + 1;
-    console.log(nextId);
-    carsDb.count({}, function (err, count) {
-        console.log("count",count);
-        newCar = {
-            name: req.body.name,
-        } */
+
 
     res.json({ result: "success" });
 });
