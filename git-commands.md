@@ -5,7 +5,7 @@ Initialize git in current folder
 
 $ git status
 
-$ git diff <filename>git 
+$ git diff <filename>
 
 $ git add <file>
 
